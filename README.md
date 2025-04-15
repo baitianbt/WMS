@@ -43,6 +43,20 @@ The application follows a traditional three-tier architecture:
 string connectionString = "Server=YOUR_SERVER;Database=WMS;Trusted_Connection=True;";
 ```
 
+
+Main()
+ ├─ 初始化 UI 样式
+ ├─ 捕获异常处理
+ ├─ 单实例检查
+ ├─ 日志系统初始化 LogManager.Init()
+ ├─ 读取配置 AppConfig.Load()
+ ├─ 自动升级检测 AutoUpdater.CheckForUpdate()
+ ├─ 框架初始化 AppBootstrapper.Initialize()
+ ├─ 用户登录窗体 LoginForm.ShowDialog()
+ └─ 启动主窗体 Application.Run(MainForm)
+
+
+
 ### Build and Run
 
 1. Build the solution

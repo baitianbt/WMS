@@ -36,210 +36,244 @@ namespace WMS.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.masterDataMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.productsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.warehousesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryManagementMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.operationsMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.inboundMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outboundMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.movementReportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.systemMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.userManagementMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.lblUserInfo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timerClock = new System.Windows.Forms.Timer(this.components);
-            
+            components = new System.ComponentModel.Container();
+            mainMenuStrip = new MenuStrip();
+            fileMenu = new ToolStripMenuItem();
+            exitMenuItem = new ToolStripMenuItem();
+            masterDataMenu = new ToolStripMenuItem();
+            productsMenuItem = new ToolStripMenuItem();
+            warehousesMenuItem = new ToolStripMenuItem();
+            inventoryMenu = new ToolStripMenuItem();
+            inventoryManagementMenuItem = new ToolStripMenuItem();
+            operationsMenu = new ToolStripMenuItem();
+            inboundMenuItem = new ToolStripMenuItem();
+            outboundMenuItem = new ToolStripMenuItem();
+            reportsMenu = new ToolStripMenuItem();
+            inventoryReportMenuItem = new ToolStripMenuItem();
+            movementReportMenuItem = new ToolStripMenuItem();
+            systemMenu = new ToolStripMenuItem();
+            userManagementMenuItem = new ToolStripMenuItem();
+            changePasswordMenuItem = new ToolStripMenuItem();
+            settingsMenuItem = new ToolStripMenuItem();
+            logViewerMenuItem = new ToolStripMenuItem();
+            statusStrip = new StatusStrip();
+            lblUserInfo = new ToolStripStatusLabel();
+            toolStripSeparator = new ToolStripSeparator();
+            lblDateTime = new ToolStripStatusLabel();
+            timerClock = new System.Windows.Forms.Timer(components);
+            splitContainer1 = new SplitContainer();
+            treeView1 = new TreeView();
+            mainMenuStrip.SuspendLayout();
+            statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            SuspendLayout();
+            // 
             // mainMenuStrip
-            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.fileMenu,
-                this.masterDataMenu,
-                this.inventoryMenu,
-                this.operationsMenu,
-                this.reportsMenu,
-                this.systemMenu
-            });
-            this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(800, 24);
-            this.mainMenuStrip.TabIndex = 0;
-            this.mainMenuStrip.Text = "menuStrip1";
-            
+            // 
+            mainMenuStrip.ImageScalingSize = new Size(20, 20);
+            mainMenuStrip.Items.AddRange(new ToolStripItem[] { fileMenu, masterDataMenu, inventoryMenu, operationsMenu, reportsMenu, systemMenu });
+            mainMenuStrip.Location = new Point(0, 0);
+            mainMenuStrip.Name = "mainMenuStrip";
+            mainMenuStrip.Padding = new Padding(9, 3, 0, 3);
+            mainMenuStrip.Size = new Size(1200, 30);
+            mainMenuStrip.TabIndex = 0;
+            mainMenuStrip.Text = "menuStrip1";
+            // 
             // fileMenu
-            this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.exitMenuItem
-            });
-            this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(37, 20);
-            this.fileMenu.Text = "File";
-            
+            // 
+            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { exitMenuItem });
+            fileMenu.Name = "fileMenu";
+            fileMenu.Size = new Size(53, 24);
+            fileMenu.Text = "文件";
+            // 
             // exitMenuItem
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.exitMenuItem.Text = "Exit";
-            this.exitMenuItem.Click += new System.EventHandler((s, e) => System.Windows.Forms.Application.Exit());
-            
+            // 
+            exitMenuItem.Name = "exitMenuItem";
+            exitMenuItem.Size = new Size(224, 26);
+            exitMenuItem.Text = "退出";
+            // 
             // masterDataMenu
-            this.masterDataMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.productsMenuItem,
-                this.warehousesMenuItem
-            });
-            this.masterDataMenu.Name = "masterDataMenu";
-            this.masterDataMenu.Size = new System.Drawing.Size(82, 20);
-            this.masterDataMenu.Text = "Master Data";
-            
+            // 
+            masterDataMenu.DropDownItems.AddRange(new ToolStripItem[] { productsMenuItem, warehousesMenuItem });
+            masterDataMenu.Name = "masterDataMenu";
+            masterDataMenu.Size = new Size(83, 24);
+            masterDataMenu.Text = "基础数据";
+            // 
             // productsMenuItem
-            this.productsMenuItem.Name = "productsMenuItem";
-            this.productsMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.productsMenuItem.Text = "Products";
-            this.productsMenuItem.Click += new System.EventHandler(this.OpenProductForm);
-            
+            // 
+            productsMenuItem.Name = "productsMenuItem";
+            productsMenuItem.Size = new Size(224, 26);
+            productsMenuItem.Text = "产品";
+            productsMenuItem.TextAlign = ContentAlignment.MiddleRight;
+            productsMenuItem.Click += OpenProductForm;
+            // 
             // warehousesMenuItem
-            this.warehousesMenuItem.Name = "warehousesMenuItem";
-            this.warehousesMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.warehousesMenuItem.Text = "Warehouses";
-            this.warehousesMenuItem.Click += new System.EventHandler(this.OpenWarehouseForm);
-            
+            // 
+            warehousesMenuItem.Name = "warehousesMenuItem";
+            warehousesMenuItem.Size = new Size(224, 26);
+            warehousesMenuItem.Text = "仓库";
+            warehousesMenuItem.Click += OpenWarehouseForm;
+            // 
             // inventoryMenu
-            this.inventoryMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.inventoryManagementMenuItem
-            });
-            this.inventoryMenu.Name = "inventoryMenu";
-            this.inventoryMenu.Size = new System.Drawing.Size(69, 20);
-            this.inventoryMenu.Text = "Inventory";
-            
+            // 
+            inventoryMenu.DropDownItems.AddRange(new ToolStripItem[] { inventoryManagementMenuItem });
+            inventoryMenu.Name = "inventoryMenu";
+            inventoryMenu.Size = new Size(92, 24);
+            inventoryMenu.Text = "Inventory";
+            // 
             // inventoryManagementMenuItem
-            this.inventoryManagementMenuItem.Name = "inventoryManagementMenuItem";
-            this.inventoryManagementMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.inventoryManagementMenuItem.Text = "Inventory Management";
-            this.inventoryManagementMenuItem.Click += new System.EventHandler(this.OpenInventoryForm);
-            
+            // 
+            inventoryManagementMenuItem.Name = "inventoryManagementMenuItem";
+            inventoryManagementMenuItem.Size = new Size(262, 26);
+            inventoryManagementMenuItem.Text = "Inventory Management";
+            inventoryManagementMenuItem.Click += OpenInventoryForm;
+            // 
             // operationsMenu
-            this.operationsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.inboundMenuItem,
-                this.outboundMenuItem
-            });
-            this.operationsMenu.Name = "operationsMenu";
-            this.operationsMenu.Size = new System.Drawing.Size(77, 20);
-            this.operationsMenu.Text = "Operations";
-            
+            // 
+            operationsMenu.DropDownItems.AddRange(new ToolStripItem[] { inboundMenuItem, outboundMenuItem });
+            operationsMenu.Name = "operationsMenu";
+            operationsMenu.Size = new Size(104, 24);
+            operationsMenu.Text = "Operations";
+            // 
             // inboundMenuItem
-            this.inboundMenuItem.Name = "inboundMenuItem";
-            this.inboundMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.inboundMenuItem.Text = "Inbound Orders";
-            
+            // 
+            inboundMenuItem.Name = "inboundMenuItem";
+            inboundMenuItem.Size = new Size(221, 26);
+            inboundMenuItem.Text = "Inbound Orders";
+            // 
             // outboundMenuItem
-            this.outboundMenuItem.Name = "outboundMenuItem";
-            this.outboundMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.outboundMenuItem.Text = "Outbound Orders";
-            
+            // 
+            outboundMenuItem.Name = "outboundMenuItem";
+            outboundMenuItem.Size = new Size(221, 26);
+            outboundMenuItem.Text = "Outbound Orders";
+            // 
             // reportsMenu
-            this.reportsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.inventoryReportMenuItem,
-                this.movementReportMenuItem
-            });
-            this.reportsMenu.Name = "reportsMenu";
-            this.reportsMenu.Size = new System.Drawing.Size(59, 20);
-            this.reportsMenu.Text = "Reports";
-            
+            // 
+            reportsMenu.DropDownItems.AddRange(new ToolStripItem[] { inventoryReportMenuItem, movementReportMenuItem });
+            reportsMenu.Name = "reportsMenu";
+            reportsMenu.Size = new Size(81, 24);
+            reportsMenu.Text = "Reports";
+            // 
             // inventoryReportMenuItem
-            this.inventoryReportMenuItem.Name = "inventoryReportMenuItem";
-            this.inventoryReportMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.inventoryReportMenuItem.Text = "Inventory Report";
-            
+            // 
+            inventoryReportMenuItem.Name = "inventoryReportMenuItem";
+            inventoryReportMenuItem.Size = new Size(227, 26);
+            inventoryReportMenuItem.Text = "Inventory Report";
+            // 
             // movementReportMenuItem
-            this.movementReportMenuItem.Name = "movementReportMenuItem";
-            this.movementReportMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.movementReportMenuItem.Text = "Movement Report";
-            
+            // 
+            movementReportMenuItem.Name = "movementReportMenuItem";
+            movementReportMenuItem.Size = new Size(227, 26);
+            movementReportMenuItem.Text = "Movement Report";
+            // 
             // systemMenu
-            this.systemMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.userManagementMenuItem,
-                this.changePasswordMenuItem,
-                this.settingsMenuItem,
-                this.logViewerMenuItem
-            });
-            this.systemMenu.Name = "systemMenu";
-            this.systemMenu.Size = new System.Drawing.Size(57, 20);
-            this.systemMenu.Text = "System";
-            
+            // 
+            systemMenu.DropDownItems.AddRange(new ToolStripItem[] { userManagementMenuItem, changePasswordMenuItem, settingsMenuItem, logViewerMenuItem });
+            systemMenu.Name = "systemMenu";
+            systemMenu.Size = new Size(76, 24);
+            systemMenu.Text = "System";
+            // 
             // userManagementMenuItem
-            this.userManagementMenuItem.Name = "userManagementMenuItem";
-            this.userManagementMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.userManagementMenuItem.Text = "User Management";
-            
+            // 
+            userManagementMenuItem.Name = "userManagementMenuItem";
+            userManagementMenuItem.Size = new Size(226, 26);
+            userManagementMenuItem.Text = "User Management";
+            // 
             // changePasswordMenuItem
-            this.changePasswordMenuItem.Name = "changePasswordMenuItem";
-            this.changePasswordMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.changePasswordMenuItem.Text = "Change Password";
-            
+            // 
+            changePasswordMenuItem.Name = "changePasswordMenuItem";
+            changePasswordMenuItem.Size = new Size(226, 26);
+            changePasswordMenuItem.Text = "Change Password";
+            // 
             // settingsMenuItem
-            this.settingsMenuItem.Name = "settingsMenuItem";
-            this.settingsMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.settingsMenuItem.Text = "System Settings";
-            
+            // 
+            settingsMenuItem.Name = "settingsMenuItem";
+            settingsMenuItem.Size = new Size(226, 26);
+            settingsMenuItem.Text = "System Settings";
+            // 
             // logViewerMenuItem
-            this.logViewerMenuItem.Name = "logViewerMenuItem";
-            this.logViewerMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.logViewerMenuItem.Text = "Log Viewer";
-            
+            // 
+            logViewerMenuItem.Name = "logViewerMenuItem";
+            logViewerMenuItem.Size = new Size(226, 26);
+            logViewerMenuItem.Text = "Log Viewer";
+            // 
             // statusStrip
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.lblUserInfo,
-                this.toolStripSeparator,
-                this.lblDateTime
-            });
-            this.statusStrip.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip.TabIndex = 1;
-            this.statusStrip.Text = "statusStrip1";
-            
+            // 
+            statusStrip.ImageScalingSize = new Size(20, 20);
+            statusStrip.Items.AddRange(new ToolStripItem[] { lblUserInfo, toolStripSeparator, lblDateTime });
+            statusStrip.Location = new Point(0, 666);
+            statusStrip.Name = "statusStrip";
+            statusStrip.Padding = new Padding(2, 0, 21, 0);
+            statusStrip.Size = new Size(1200, 26);
+            statusStrip.TabIndex = 1;
+            statusStrip.Text = "statusStrip1";
+            // 
             // lblUserInfo
-            this.lblUserInfo.Name = "lblUserInfo";
-            this.lblUserInfo.Size = new System.Drawing.Size(79, 17);
-            this.lblUserInfo.Text = "Current user: ";
-            
+            // 
+            lblUserInfo.Name = "lblUserInfo";
+            lblUserInfo.Size = new Size(107, 20);
+            lblUserInfo.Text = "Current user: ";
+            // 
             // toolStripSeparator
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 22);
-            
+            // 
+            toolStripSeparator.Name = "toolStripSeparator";
+            toolStripSeparator.Size = new Size(6, 26);
+            // 
             // lblDateTime
-            this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(65, 17);
-            this.lblDateTime.Text = "Date Time";
-            
+            // 
+            lblDateTime.Name = "lblDateTime";
+            lblDateTime.Size = new Size(83, 20);
+            lblDateTime.Text = "Date Time";
+            // 
             // timerClock
-            this.timerClock.Interval = 1000;
-            this.timerClock.Tick += new System.EventHandler((s, e) => this.UpdateDateTimeLabel());
-            
+            // 
+            timerClock.Interval = 1000;
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 30);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(treeView1);
+            splitContainer1.Size = new Size(1200, 636);
+            splitContainer1.SplitterDistance = 208;
+            splitContainer1.TabIndex = 3;
+            // 
+            // treeView1
+            // 
+            treeView1.Dock = DockStyle.Fill;
+            treeView1.Location = new Point(0, 0);
+            treeView1.Name = "treeView1";
+            treeView1.Size = new Size(208, 636);
+            treeView1.TabIndex = 0;
+            // 
             // MainForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.mainMenuStrip);
-            this.MainMenuStrip = this.mainMenuStrip;
-            this.Name = "MainForm";
-            this.Text = "WMS - Warehouse Management System";
-            this.mainMenuStrip.ResumeLayout(false);
-            this.mainMenuStrip.PerformLayout();
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1200, 692);
+            Controls.Add(splitContainer1);
+            Controls.Add(statusStrip);
+            Controls.Add(mainMenuStrip);
+            IsMdiContainer = true;
+            MainMenuStrip = mainMenuStrip;
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "MainForm";
+            Text = "WMS - Warehouse Management System";
+            mainMenuStrip.ResumeLayout(false);
+            mainMenuStrip.PerformLayout();
+            statusStrip.ResumeLayout(false);
+            statusStrip.PerformLayout();
+            splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -268,5 +302,7 @@ namespace WMS.UI
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripStatusLabel lblDateTime;
         private System.Windows.Forms.Timer timerClock;
+        private SplitContainer splitContainer1;
+        private TreeView treeView1;
     }
 } 

@@ -16,4 +16,8 @@
     <ProjectReference Include="..\WMS.BLL\WMS.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
+
 </Project>
