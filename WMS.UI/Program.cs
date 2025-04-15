@@ -13,17 +13,39 @@ namespace WMS.UI
     {
         public static IServiceProvider ServiceProvider { get; private set; }
         public static User CurrentUser { get; private set; }
-
+        private static Mutex _mutex;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            // 1. 默认设置
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // 2. 异常处理
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+            // 3. 单例运行（可选）
+            if (!EnsureSingleInstace("WMS"))
+            {
+                MessageBox.Show("应用程序已在运行中。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 4. 自动升级与配置读取
+            //    初始化日志系统
+            //    读取配置
+            //    检查是否升级
+            
+
+
+
+
+            // 5. 开启登录界面
             try
             {
                 // 加载配置
@@ -62,6 +84,24 @@ namespace WMS.UI
                 MessageBox.Show($"应用程序启动失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Critical("应用程序启动失败", ex);
             }
+        }
+
+        private static bool EnsureSingleInstace(string mutexName)
+        {
+            bool createdNew;
+            _mutex = new Mutex(true, mutexName, out createdNew);
+            return createdNew;
+
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private static void ConfigureServices(ServiceCollection services)

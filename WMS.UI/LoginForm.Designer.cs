@@ -45,7 +45,7 @@ namespace WMS.UI
             // lblTitle
             // 
             lblTitle.Dock = DockStyle.Top;
-            lblTitle.Font = new Font("Î¢ÈíÑÅºÚ", 16F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            lblTitle.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point, 134);
             lblTitle.Location = new Point(0, 0);
             lblTitle.Margin = new Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
