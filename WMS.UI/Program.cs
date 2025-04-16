@@ -1,6 +1,9 @@
 using System;
+using System.Configuration;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Configuration;
 using WMS.BLL;
 using WMS.BLL.Services;
 using WMS.DAL;
@@ -26,7 +29,9 @@ namespace WMS.UI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // 2. 异常处理
+            // UI线程异常
             Application.ThreadException += Application_ThreadException;
+            // 非UI线程异常
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             // 3. 单例运行（可选）
@@ -36,11 +41,15 @@ namespace WMS.UI
                 return;
             }
 
+
+
+
             // 4. 自动升级与配置读取
             //    初始化日志系统
             //    读取配置
             //    检查是否升级
-            
+            string sqlConnection = ConfigurationManager.AppSettings["Version"];
+            string connectionString = ConfigurationManager.ConnectionStrings["SqlServer"].ConnectionString;
 
 
 
@@ -113,6 +122,13 @@ namespace WMS.UI
                 connectionString = "Server=localhost;Database=WMS;Trusted_Connection=True;";
                 ConfigManager.UpdateConnectionString(connectionString);
             }
+
+            services.AddLogging(config =>
+            {
+                config.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Debug);
+                config.AddConsole();
+            });
+
 
             // 注册 DAL 服务
             services.AddSingleton(new DatabaseConnection(connectionString));
